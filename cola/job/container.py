@@ -127,7 +127,7 @@ class Container(object):
         def check():
             while not self.stopped.is_set():
                 self.idle_statuses[self.container_id] = \
-                    all([task.is_idle() for task in self.tasks])
+                    all(task.is_idle() for task in self.tasks)
                 self.stopped.wait(5)
         self.check_idle_t = threading.Thread(target=check)
             

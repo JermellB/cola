@@ -247,5 +247,5 @@ class Task(object):
             self.save()
             
     def is_idle(self):
-        return all([len(item) == 0 for item in self.priorities_objs]) and \
+        return all(len(item) == 0 for item in self.priorities_objs) and \
                 len(self.runnings) == 0 and self.running is None
