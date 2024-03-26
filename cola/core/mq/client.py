@@ -19,8 +19,8 @@ Created on 2013-5-28
 
 @author: Chine
 '''
+import secrets
 
-from random import shuffle
 try:
     import cPickle as pickle
 except ImportError:
@@ -52,7 +52,7 @@ class MessageQueueClient(object):
         size = max(size, 1)
         
         addrs = list(self.addrs)
-        shuffle(addrs)
+        secrets.SystemRandom().shuffle(addrs)
         
         results = []
         for addr in addrs:
